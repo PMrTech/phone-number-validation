@@ -1,33 +1,33 @@
-$('.search-btn').on('click', function(){
-  $.ajax({
-    url: "http://www.omdbapi.com/?apikey=913f4688&s=" + $('.input-text').val(),
-    success: (results) => {
-      const listMovie = results.Search;
+const searchButton = document.querySelector(".search-btn");
+
+searchButton.addEventListener("click", function () {
+  const inputText = document.querySelector(".input-text");
+  const movieCards = document.querySelector(".movie-cards");
+  fetch("http://www.omdbapi.com/?apikey=913f4688&s=" + inputText.value)
+    .then((response) => response.json())
+    .then((response) => {
+      const listMovie = response.Search;
       let cards = "";
-      listMovie.forEach(r => cards += showCards(r));
-      $(".movie-cards").html(cards);
-  
-      $(".modal-button").on("click", function () {
-        $.ajax({
-          url:
-            "http://www.omdbapi.com/?apikey=913f4688&i=" + $(this).data("imdbid"),
-          success: (results) => {
-            const movieDetail = showDetail(results);
-            $(".modal-body").html(movieDetail);
-          },
-          error: (e) => {
-            console.log(error.reponseText);
-          },
+      listMovie.forEach((r) => (cards += showCards(r)));
+      movieCards.innerHTML = cards;
+      const modalButton = document.querySelectorAll(".modal-button");
+      modalButton.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const id = this.dataset.imdbid;
+          fetch(`http://www.omdbapi.com/?apikey=913f4688&i=${id}`)
+            .then((response) => response.json())
+            .then((response) => {
+              const modalBody = document.querySelector(".modal-body");
+              const movieDetail = showDetail(response);
+              modalBody.innerHTML = movieDetail;
+            });
         });
       });
-    },
-    error: (error) => {
-      console.log(error.reponseText);
-    },
-  });
-  
-  function showCards(r) {
-    return `
+    });
+});
+
+function showCards(r) {
+  return `
           <div class="col-md-4 my-3">
               <div class="card"">
               <img src="${r.Poster}" class="card-img-top">
@@ -38,10 +38,10 @@ $('.search-btn').on('click', function(){
               </div>
               </div>
           </div>`;
-  }
-  
-  function showDetail(results) {
-    return `
+}
+
+function showDetail(results) {
+  return `
           <div class="container-fluid">
               <div class="row">
                   <div class="col-md-3">
@@ -59,6 +59,4 @@ $('.search-btn').on('click', function(){
               </div>
           </div>
           `;
-  }
-})
-
+}
