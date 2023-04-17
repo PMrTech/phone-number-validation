@@ -1,82 +1,84 @@
 class Calculator {
   constructor() {
-    this.buffer = '0';
-    this.operator = '';
+    this.buffer = "0";
+    this.operator = "";
     this.total = 0;
   }
-  setScreen(number){
-    const screen = document.querySelector('.screen');
+  setScreen(number) {
+    const screen = document.querySelector(".screen");
     screen.innerHTML = number;
   }
   buttonClick(button) {
     if (isNaN(button)) {
       this.buttonSymbol(button);
-    }else {
+    } else {
       this.buttonNumber(button);
     }
   }
   buttonSymbol(symbol) {
     switch (symbol) {
-      case 'C':
-        this.buffer = '0';
-        this.operator = '';
+      case "C":
+        this.buffer = "0";
+        this.operator = "";
         this.total = 0;
         this.setScreen(this.buffer);
 
-      case '←':
-        if(this.buffer.length == 1){
-          this.buffer = '0';
-        }else{
+      case "←":
+        if (this.buffer.length == 1) {
+          this.buffer = "0";
+        } else {
           this.buffer = this.buffer.substring(0, this.buffer.length - 1);
         }
         this.setScreen(this.buffer);
         break;
-      case '=':
+      case "=":
         this.calculate(parseFloat(this.buffer));
-        this.operator = '';
+        this.operator = "";
+        this.buffer = "0"
         break;
 
-      case '+':
-      case '−':
-      case '×':
-      case '÷':
+      case "+":
+      case "−":
+      case "×":
+      case "÷":
         this.operator = symbol;
         this.calculate(parseFloat(this.buffer));
-        this.buffer = '0';
+        this.buffer = "0";
         this.setScreen(this.buffer);
         break;
     }
   }
   buttonNumber(number) {
-    if (this.buffer === '0') {
+    if (this.buffer === "0") {
       this.buffer = number;
     } else {
       this.buffer += number;
     }
+
     this.setScreen(this.buffer);
   }
 
   calculate(value) {
     if (this.total === 0) {
       this.total += value;
-    }else{
+    } else {
       switch (this.operator) {
-        case '+':
+        case "+":
           this.total += value;
           break;
 
-        case '−':
+        case "−":
           this.total -= value;
           break;
 
-        case '×':
-          if(this.buffer != 0){
+        case "×":
+          if (this.buffer != 0) {
             this.total *= value;
           }
           break;
 
-        case '÷':
-          if(this.buffer != 0){
+        case "÷":
+          if (this.buffer != 0) {
             this.total /= value;
           }
           break;
@@ -86,13 +88,10 @@ class Calculator {
   }
 }
 
-const click = new Calculator;
-const buttons = Array.from(document.getElementsByClassName('cal-button'));
-buttons.forEach(button => {
-  button.addEventListener('click', getButton =>{
+const click = new Calculator();
+const buttons = Array.from(document.getElementsByClassName("cal-button"));
+buttons.forEach((button) => {
+  button.addEventListener("click", (getButton) => {
     click.buttonClick(getButton.target.innerHTML);
-  })
-})
-
-
-
+  });
+});
