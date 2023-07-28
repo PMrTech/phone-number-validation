@@ -1,94 +1,120 @@
-* {
+:root{
+  --main-color: #F1F2F1;
+  --side-color-1: #939995;
+  --side-color-2: #32302E;
+}
+
+body{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  text-decoration: none;
+  background-color: var(--main-color);
+  color: var(--side-color-2)
 }
 
-main,
-section {
-  padding-top: 8vh;
-  height: 100vh;
+/* flexbox layout start*/
+.flex{
+  display: flex;
 }
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+/* flexbox layout end */
 
 /* header section start */
-header {
-  display: flex;
-  padding: 1rem;
-  justify-content: space-between;
+header{
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  background-color: red;
-}
-
-header nav {
-  display: flex;
+  background-color: var(--side-color-1);
+  width: 100%;
+  text-align: center;
   justify-content: space-between;
   align-items: center;
-  gap: 5rem;
 }
 
-header nav a {
+header h1{
+  margin-left: 3rem;
+  font-weight: 900;
+}
+
+header nav{
+  margin: 1rem;
+}
+
+header nav a{
+  margin-left: 5rem;
+  color: var(--side-color-2);
   text-decoration: none;
-  font-weight: bold;
-  color: black;
 }
 
-header nav a:hover {
-  color: red;
+header nav a:hover{
+  content: "test";
+  display: inline-block;
+  border-bottom: var(--side-color-2);
+  text-decoration-line: underline;
 }
 /* header section end */
 
 /* main section start */
-main {
-  display: flex;
+main{
+  padding: 5rem 0 1rem;
+  align-items: center;
+  gap: rem;
 }
 
-main .avatar-card {
+main .avatar-card{
   flex-basis: 50%;
+  text-align: center;
+  box-shadow: 1rem 1rem 1rem var(--side-color-2);
+  border-radius: .1rem;
 }
 
-main .description {
+main .description{
   flex-basis: 50%;
-  padding: 1rem;
   text-align: justify;
-  align-self: center;
+  margin: 3rem;
 }
 /* main section end */
 
-
-/* skill section start */
-.skills .skill-cards,
-.projects .project-cards{
-  display: flex;
-  justify-content: center;
-  align-content:center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  height: 100%;
-  overflow-x: scroll;
+/* section layout and screen start */
+.full-screen{
+  min-height: 100vh;
 }
 
-.skills .skill-cards li,
-.projects .project-cards li{
-  list-style: none;
-  width: 20rem;
-  height: 23rem;
-  border: 1px solid red
+section h2{
+  text-align: center;
+  padding: 5rem;
 }
-/* skill section end */
+/* section layout and screen end */
 
+/* experiences section start */
+.experiences{
+}
+/* experiences section end */
 
-/* project section start */
-.projects .project-cards li a{
-  border: 1px solid red;
-  display: inline-block;
-  margin: 1rem 2rem;
+/* projects section start */
+.projects{
+  
 }
-.projects .project-cards li a button{
-  width: 5rem;
-  border: none;
+/* projects section end */
+
+/* skills section start */
+.skills{
+  
 }
-/* project section end */
+/* skills section end */
+
+/* contact section start */
+.contact{
+  height: 90vh;
+}
+/* contact section end */
+
+/* footer section start */
+footer{
+  height: 10vh;
+}
+/* footer section end */
+
+/* media query */
