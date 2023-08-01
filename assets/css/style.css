@@ -13,19 +13,9 @@ body {
   color: var(--side-color-2);
 }
 
-/* flexbox layout start*/
-.flex {
-  display: flex;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-/* flexbox layout end */
-
 /* header section start */
 header {
+  display: flex;
   position: fixed;
   background-color: var(--side-color-1);
   width: 100%;
@@ -60,6 +50,7 @@ header nav a:hover {
 
 /* main section start */
 main {
+  display: contents;
   padding: 5rem 0 1rem;
   align-items: center;
   gap: rem;
