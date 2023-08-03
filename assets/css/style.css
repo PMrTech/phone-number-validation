@@ -50,7 +50,7 @@ header nav a:hover {
 
 /* main section start */
 main {
-  display: contents;
+  display: flex;
   padding: 5rem 0 1rem;
   align-items: center;
   gap: rem;
@@ -85,7 +85,7 @@ section h2 {
 .experiences .card {
   background-color: var(--side-color-1);
   border-radius: 1rem;
-  height: 10rem;
+  min-height: 10rem;
   position: relative;
   margin: 0 2rem 5rem;
 }
@@ -94,6 +94,16 @@ section h2 {
   position: absolute;
   top: -2.5rem;
   left: 16rem;
+}
+
+.experiences .card h4{
+  margin-left: 16rem;
+}
+
+.experiences .card .periode{
+  position: absolute;
+  top: -2rem;
+  right: 1rem;
 }
 
 .experiences .card img {
@@ -108,10 +118,6 @@ section h2 {
 .experiences .card ul {
   margin-left: 14rem;
 }
-
-.experiences .card ul {
-  display: inline-block;
-}
 /* experiences section end */
 
 /* projects section start */
@@ -123,13 +129,7 @@ section h2 {
 .skills-and-tools {
   position: relative;
 }
-.skills-and-tools .bg{
-  position: absolute;
-  opacity: 0.1;
-  right: 50%;
-  transform: translateX(50%);
-  top: 8rem;
-}
+
 .skills-and-tools .boards {
   display: flex;
   justify-content: space-between;
@@ -146,28 +146,39 @@ section h2 {
   flex: 1;
 }
 
-.skills-and-tools .boards .board ul li{
+.skills-and-tools .boards .board h3{
+  text-align: center;
+}
+
+.skills-and-tools .boards .board .parts{
+
+}
+
+.skills-and-tools .boards .board .parts .part{
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin: 2rem 0;
   box-shadow: -.1rem .1rem .2rem var(--shadow-color), .1rem -.1rem .2rem var(--shadow-color);
-  padding: .3rem;
   border-radius: 1rem;
+  margin: 1rem 0;
 }
 
-.skills-and-tools .boards .board ul li .part{
+.skills-and-tools .boards .board .parts .part .part-name{
   flex: 1;
 }
 
-.skills-and-tools .boards .board ul li .icons{
+.skills-and-tools .boards .board .parts .part .icons{
   display: flex;
   gap: 1rem;
   justify-content: flex-start;
-  flex: 1;
+  flex: 1;  
 }
 
-.skills-and-tools .boards .board ul li .icons .icon img{
+.skills-and-tools .boards .board .parts .part .icon{
+  padding: .1rem;
+}
+
+.skills-and-tools .boards .board .parts .part .icons .icon img{
   border-radius: .3rem;
   padding: .3rem;
   background-color: var(--main-color);  
