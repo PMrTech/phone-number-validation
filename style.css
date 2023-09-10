@@ -21,9 +21,10 @@ h1{
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(30deg,rgb(253, 241, 72), rgb(68, 209, 55));
-    height: 20vh;
+    height: 20rem;
     width: 50rem;
     border-radius: 2rem;
+    padding: 2rem;
 }
 
 .column{
@@ -31,7 +32,7 @@ h1{
     align-items: center;
     justify-content: center;
     column-gap: 1rem;
-    max-width: 25rem;
+    width: 100%;
 }
 
 .row{
@@ -41,11 +42,12 @@ h1{
     justify-content: center;
     align-items: center;
     column-gap: 1rem;
+    width: min(25rem, 90%);
 }
 
 /* phone-number input start */
-.phone-number{  
-    width: 25rem;
+.phone-number{
+    width: 100%;
     text-align: center;
     padding:  .5rem 1rem;
     border-radius: 1rem;
