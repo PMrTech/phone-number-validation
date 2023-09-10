@@ -16,7 +16,7 @@ function validation(){
         errorMessage.textContent = error;
         errorMessage.style.opacity = 1;
     }else{
-        alert('nomer valid');
+        errorMessage.style.opacity = 0;
         phoneNumberInput.classList.remove('error');
     }
 }
